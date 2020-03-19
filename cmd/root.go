@@ -97,6 +97,10 @@ and maintain config map with rule contents. This tool is a subset of coreos prom
 				parts = append(parts, "unknown")
 			}
 
+			if version.Commit != "" {
+				parts = append(parts, "commit:", version.Commit)
+			}
+
 			fmt.Println(strings.Join(parts, " "))
 		},
 	}
