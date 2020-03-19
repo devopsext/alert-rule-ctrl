@@ -1,7 +1,7 @@
 # alert-rule-ctrl
 Subset of coreos prometheus operator (https://github.com/coreos/prometheus-operator) to handle PrometheusRule CRD (alerting rules).
 
-###Motivation: 
+### Motivation: 
 Prometheus operator looks rather heavy solution and still can't (maybe never) adopt already existing prometheus installation (suppose you have your own prometheus installation and you don't want prometheus operator to rule it).
 In order to bring prometheus alert rules feature in a form of CRD 'PrometheusRule' this tiny service was created.
 
@@ -9,7 +9,7 @@ This allow to keep the minimal footprint - one sidecar container in prometheus P
 
 The service is fully compatible with coreos PrometheusRule CRD object, thus, if you decide to switch to coreos prometheus operator later, all your prometheus alerting rules will be in place.
 
-###Usage:
+### Usage:
 ```
 alert-rule-ctrl is a tool that monitor PrometheusRule CRDs 
 and maintain config map with rules contents. This tool is a subset of coreos prometheus operator (https://github.com/coreos/prometheus-operator)
