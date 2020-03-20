@@ -62,7 +62,7 @@ func cmdRootOnInit() {
 	logger = log.With(logger, "ts", log.DefaultTimestampUTC)
 	logger = log.With(logger, "caller", log.DefaultCaller)
 
-	level.Debug(logger).Log("msg", "Started with the following command line:\n"+strings.Join(os.Args, " "))
+	level.Debug(logger).Log("msg", "Started with cmdline: "+strings.Join(os.Args, " "))
 }
 
 func Execute() int {
@@ -222,7 +222,7 @@ This is mutually exclusive with --allowedNamespace.
 
 func cmdRootRun(cmd *cobra.Command, args []string) {
 
-	level.Info(logger).Log("msg", "Version", version.Version)
+	level.Info(logger).Log("msg", "Version: "+version.Version)
 
 	tlsConfig := rest.TLSClientConfig{
 		CAData:   []byte(caData),
@@ -248,7 +248,7 @@ func cmdRootRun(cmd *cobra.Command, args []string) {
 
 	if cfgMapNamespace == "" {
 		cfgMapNamespace = "default"
-		level.Warn(logger).Log("msg", "config map namespace not specified and set to"+cfgMapNamespace)
+		level.Warn(logger).Log("msg", "config map namespace not specified and set to "+cfgMapNamespace)
 	}
 
 	rc, err := NewRuleController(logger,
